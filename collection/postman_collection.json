@@ -1,0 +1,253 @@
+{
+    "info": {
+        "name": "API-Shop",
+        "_postman_id": "unique-id",
+        "description": "Postman collection for API-Shop project",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Signup",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"fio\": \"Иванов Иван Иванович\",\n    \"email\": \"ivanov@example.com\",\n    \"password\": \"password123\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/api/signup",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "signup"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"email\": \"ivanov@example.com\",\n    \"password\": \"password123\"\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/api/login",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "login"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Products",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "http://localhost:5000/api/products",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "products"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Add to Cart",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{user_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/cart/1",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "cart", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "View Cart",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{user_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/cart",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "cart"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete from Cart",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{user_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/cart/1",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "cart", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Place Order",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{user_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/order",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "order"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "View Orders",
+            "request": {
+                "method": "GET",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{user_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/order",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "order"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Add Product (Admin)",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"Product name 3\",\n    \"description\": \"Product description 3\",\n    \"price\": 300.0\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/api/product",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "product"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Product (Admin)",
+            "request": {
+                "method": "DELETE",
+                "header": [
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "url": {
+                    "raw": "http://localhost:5000/api/product/1",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "product", "1"]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Edit Product (Admin)",
+            "request": {
+                "method": "PATCH",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Authorization",
+                        "value": "Bearer {{admin_token}}"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"price\": 500.0\n}"
+                },
+                "url": {
+                    "raw": "http://localhost:5000/api/product/1",
+                    "protocol": "http",
+                    "host": ["localhost"],
+                    "port": "5000",
+                    "path": ["api", "product", "1"]
+                }
+            },
+            "response": []
+        }
+    ]
+}
